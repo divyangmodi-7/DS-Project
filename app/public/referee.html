@@ -49,9 +49,7 @@
     <thead>
 
       <tr>
-
         <tr>
-
           <th class="text-center">Name </th>
 
           <th class="text-center">Age</th>
@@ -86,13 +84,20 @@
 
               <td>{{ ref.report }}</td>
 
+              <td>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="selectOfferToEdit(ref)">Edit</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="postDeleteOffer(ref)">Delete</button>
+              </td>
+
           </tr>
 
       </tbody>
 
   </table>
 
-<form v-on:submit.prevent="postNewOffer">
+<form v-on:submit.prevent="postOffer">
  <div class="form-group">
   <label for="name" class="form-label" >Name:</label>
   <input type="text" v-model="offerForm.rname" class="form-control" id="name" >
