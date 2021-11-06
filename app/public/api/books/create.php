@@ -1,6 +1,5 @@
 <?php
 
-
 try {
     $_POST = json_decode(                                  
                 file_get_contents('php://input'),          
@@ -14,7 +13,6 @@ try {
 }
 
 require("class/DbConnection.php");
-
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
