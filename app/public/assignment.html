@@ -102,10 +102,10 @@
         <form v-on:submit.prevent="postAssignment">
           <div class="row">
             <div class="col">
-              <label for="gameId">Game ID</label>
+              <label for="gameId">Game Name</label>
               <select aria-describedby="gameId" id="gameId" class="form-select" v-model="assignForm.game_id">
                 <option v-for="g in games" :value="g.game_id">
-                  {{"Field Number: " + g.field_num + " Start Date: " + g.start_date + " Start Time: " + g.start_time}}
+                  {{ g.game_name}}
                 </option>
               </select>
             </div>

@@ -29,4 +29,4 @@ $stmt->execute([
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../assignment/?referee_id=' . $_POST['referee_id']);
+header('Location: ../assignment/?id=' . $_POST['id']);

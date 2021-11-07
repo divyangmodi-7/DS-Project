@@ -21,16 +21,17 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 
 $stmt = $db->prepare(
-  'INSERT INTO games (field_num, startdate, start_time, game_level, num_of_refs)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO games (field_num, start_date, start_time, game_level, num_of_refs, game_name)
+  VALUES (?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
   $_POST['field_num'],
-  $_POST['startdate'],
+  $_POST['start_date'],
   $_POST['start_time'],
   $_POST['game_level'],
-  $_POST['num_of_refs']
+  $_POST['num_of_refs'],
+  $_POST['game_name']
 ]);
 
 

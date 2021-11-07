@@ -9,9 +9,9 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM assignment';
 $vars = [];
 
-if (isset($_GET['referee_id'])) {
-  $sql = 'SELECT * FROM assignment WHERE referee_id = ?';
-  $vars = [ $_GET['referee_id'] ];
+if (isset($_GET['id'])) {
+  $sql = 'SELECT * FROM assignment WHERE id = ?';
+  $vars = [ $_GET['id'] ];
 }
 
 $stmt = $db->prepare($sql);

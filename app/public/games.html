@@ -56,16 +56,18 @@
             <th>Start Time</th>
             <th>Game Level</th>
             <th>Number of Referees</th>
+            <th>Game Name</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="game in games">
             <td>{{ game.field_num }}</td>
-            <td>{{ game.startdate }}</td>
+            <td>{{ game.start_date }}</td>
             <td>{{ game.start_time}}</td>
             <td>{{ game.game_level }}</td>
             <td>{{ game.num_of_refs}}</td>
+            <td>{{ game.game_name}}</td>
             <td>
                 <button type="button" class="btn btn-outline-secondary btn-sm"
                               v-on:click="selectGame(game)">Edit</button>
@@ -110,7 +112,10 @@
         <input type="number" id="numOfRefs" class="form-control" aria-describedby="numOfRefs"
           placeholder="Enter # of Referees" v-model="gameForm.num_of_refs">
       </div>
-
+      <div class="row">
+        <label for="gamename" class="form-label" >Game Name:</label>
+        <input type="text" v-model="gameForm.game_name" class="form-control" id="gamename" >
+       </div>
       <button type="submit" style="margin: 0px 10px 0px 0px;" class="btn btn-primary"><svg
           xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg"
           viewBox="0 0 20 20">

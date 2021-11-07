@@ -22,7 +22,7 @@ $db = DbConnection::getConnection();
 $stmt = $db->prepare(
   'UPDATE assignment SET
   game_id = ?,
-  referee_id = ?,
+  id = ?,
   position = ?,
   current_status = ?
   WHERE assignment_id = ?'
@@ -30,7 +30,7 @@ $stmt = $db->prepare(
 
 $stmt->execute([
   $_POST['game_id'],
-  $_POST['referee_id'],
+  $_POST['id'],
   $_POST['position'],
   $_POST['current_status'],
   $_POST['assignment_id']
@@ -38,4 +38,4 @@ $stmt->execute([
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../assignment/?referee_id=' . $_POST['referee_id']);
+header('Location: ../assignment/?id=' . $_POST['id']);

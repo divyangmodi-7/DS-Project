@@ -24,19 +24,21 @@ $db = DbConnection::getConnection();
 $stmt = $db->prepare(
   'UPDATE games SET
   field_num = ?,
-  startdate = ?,
+  start_date = ?,
   start_time = ?,
   game_level = ?,
-  num_of_refs = ?
+  num_of_refs = ?,
+  game_name = ?
   WHERE game_id = ?'
 );
 
 $stmt->execute([
   $_POST['field_num'],
-  $_POST['startdate'],
+  $_POST['start_date'],
   $_POST['start_time'],
   $_POST['game_level'],
   $_POST['num_of_refs'],
+  $_POST['game_name'],
   $_POST['game_id']
 ]);
 
