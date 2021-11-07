@@ -10,11 +10,13 @@ const SomeApp = {
             selectedGame: null,
             selectedAssignment: null,
             selectUnassigned: false,
+            selectedGameAssign: null,
             gameForm : {},
             refForm : {},
             assignForm : {},
             "games": [],
             "assignments": [],
+            "assigns":[],
             "unassignedGames": []
         }
 
@@ -60,6 +62,16 @@ const SomeApp = {
           this.assignments = [];
           this.fetchAssignmentData(this.selectedOffer);
       },
+
+      selectGames(g) {
+        if (g == this.selectedGameAssign){
+            return;
+        }
+        this.selectedGameAssign = g;
+        this.assigns = [];
+        this.fetchGamesData(this.selectedGameAssign);
+
+    },
 
         postGame(evt) {
           if(this.selectedGame === null) {
@@ -322,6 +334,21 @@ const SomeApp = {
                   console.error(err);
           })
       },
+
+      fetchGamesData(g){
+        console.log("Fetching game data for ", g);
+        fetch('/api/assignment/selectByGame.php/?game_id=' + g.game_id)
+        .then( response => response.json())
+        .then( (responseJson) => {
+            console.log(responseJson);
+            this.assigns = responseJson;
+        })
+
+        .catch( (err) => {
+
+                console.error(err);
+        })
+    },
 
     postNewGame(evt) {
 

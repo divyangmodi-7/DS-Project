@@ -34,6 +34,9 @@
       <li class="nav-item">
         <a class="nav-link" href="assignment.html">Assignment</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="game_assignment.html">Game Assignments</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -102,7 +105,7 @@
         <form v-on:submit.prevent="postAssignment">
           <div class="row">
             <div class="col">
-              <label for="gameId">Game Name</label>
+              <label for="gameId">Game </label>
               <select aria-describedby="gameId" id="gameId" class="form-select" v-model="assignForm.game_id">
                 <option v-for="g in games" :value="g.game_id">
                   {{ g.game_name}}
