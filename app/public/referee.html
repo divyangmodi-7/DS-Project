@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>D&S Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!-- Adding Vue js-->
+ 
+<script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <header>
+      Team 20 - Data and Systems Project
+    </header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="referee.html">Referee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="games.html">Games</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assignment.html">Assignment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="game_assignment.html">Game Assignments</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id='makingcenter'>
+<h2>Referees</h2>
+<div id="anotherApp" class="container">
+
+  <table  class="table table-bordered table-striped " id="table-id">
+
+    <thead>
+
+      <tr>
+        <tr>
+          <th class="text-center">Name </th>
+
+          <th class="text-center">Age</th>
+
+          <th class="text-center">Referee Grade</th>
+
+          <th class="text-center">Referee Skill</th>
+
+          <th class="text-center">Referee position</th>
+
+          <th class="text-center">Report</th>
+
+          <th class="text-center">Actions</th>
+
+          </tr>
+
+      </tr>
+
+    </thead>
+
+      <tbody>
+
+          <tr v-for="ref in referee">
+
+              <td>{{ ref.rname }}</td>
+
+              <td>{{ ref.age }}</td>
+
+              <td>{{ ref.referee_grade }}</td>
+
+              <td>{{ ref.referee_skill }}</td>
+
+              <td>{{ ref.relevant_position }}</td>
+
+              <td>{{ ref.report }}</td>
+
+              <td>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="selectOfferToEdit(ref)">Edit</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="postDeleteOffer(ref)">Delete</button>
+              </td>
+
+          </tr>
+
+      </tbody>
+
+  </table>
+<p><a href="api/reports/referees.php/?format=csv" download>Download as CSV</a>
+<br>
+<form v-on:submit.prevent="postOffer">
+ <div class="form-group">
+  <label for="name" class="form-label" >Name:</label>
+  <input type="text" v-model="offerForm.rname" class="form-control" id="name" >
+ </div>
+ <div class="form-group">
+  <label for="age" class="form-label" >Age:</label>
+      <input type="number" v-model="offerForm.age"
+       class="form-control" id="age">
+ </div>
+ <div class="form-group">
+  <label for="referee_grade" class="form-label">Referee Grade:</label>
+  <input type="text" v-model="offerForm.referee_grade"
+   class="form-control" id="referee_grade">
+ </div>
+ <div class="form-group">
+  <label for="referee_skill" class="form-label">Referee Skill:</label>
+  <input type="number" v-model="offerForm.referee_skill"
+   class="form-control" id="referee_skill">
+ </div>
+ <div class="form-group">
+  <label for="relevant_position" class="form-label">Relevant Position:</label>
+  <input type="text" v-model="offerForm.relevant_position"
+   class="form-control" id="relevant_position">
+ </div>
+ <div class="form-group">
+  <label for="report" class="form-label">Report:</label>
+  <input type="text" v-model="offerForm.report"
+   class="form-control" id="report">
+ </div>
+ <br>
+ <input class="ad" type="submit" value="Add"><br>
+</form>
+<script src="js/index.js"></script>
+<script src="js/tablesort.min.js"></script>
+<!-- Tablesort plugin used from http://tristen.ca/tablesort/demo/ -->
+<script>
+  new Tablesort(document.getElementById('sometable'));
+</script>
+</body>
+</html>
