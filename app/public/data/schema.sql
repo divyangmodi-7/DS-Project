@@ -36,7 +36,7 @@ CREATE TABLE assignment(
     game_id int NOT NULL,
     id int,
     position varchar(9) NOT NULL,
-    current_status enum('unassigned','notified','accepted','declined'),
+    current_status enum('unassigned','assigned','tentative','accepted'),
     PRIMARY KEY (assignment_id),
     FOREIGN KEY (game_id) REFERENCES games(game_id),
     FOREIGN KEY (id) REFERENCES referee(id)

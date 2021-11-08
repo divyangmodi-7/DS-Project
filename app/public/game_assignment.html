@@ -49,29 +49,29 @@
         <h4>Select a game below:</h4>
         <ul class="list-group">
           <li v-for="g in games" v-on:click="selectGames(g)"
-            :class="['list-group-item', {selected: selectedGameAssign && g.game_id == selectedGameAssign.game_id}]">{{
-            g.game_id + ', ' + g.game_name}}</li>
+            :class="['list-group-item list-group-item-action', {selected: selectedGameAssign && g.game_id == selectedGameAssign.game_id}]">{{
+            g.game_name}}</li>
         </ul>
       </div>
 
       <div class="col col-8" v-if="selectedGameAssign">
-        <h3>Assignments for {{ selectedGameAssign.game_id + ', ' + selectedGameAssign.game_name }}</h3>
+        <h3>Assignments for {{ selectedGameAssign.game_name }}</h3>
         <hr />
         
         <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th>Game ID</th>
                 <th>Referee Name</th>
-                <th>Position</th>
+                <th>Age</th>
                 <th>Status</th>
+                <th>Position</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="a in assigns">
-                <td>{{ a.game_id }}</td>
                 <td>{{ a.rname }}</td>
                 <td>{{ a.age }}</td>
+                <td>{{ a.current_status }}</td>
                 <td>{{ a.relevant_position}}</td>
               </tr>
             </tbody>
