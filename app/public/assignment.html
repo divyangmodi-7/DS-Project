@@ -32,7 +32,7 @@
         <a class="nav-link" href="games.html">Games</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="assignment.html">Assignment</a>
+        <a class="nav-link" href="assignment.html" active>Assignment</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="game_assignment.html">Game Assignments</a>
@@ -86,7 +86,7 @@
         </table>
 
         <div class="noAssignemnts" v-if="! assignments.length">
-          <h3>This ref aint got no assignments y'all.</h3>
+          <h3>This referee has no assignments yet.</h3>
         </div>
         <hr>
         <p><a :href="'api/reports/assignment.php/?format=csv&id=' + selectedOffer.id" download>Download as CSV </a>
