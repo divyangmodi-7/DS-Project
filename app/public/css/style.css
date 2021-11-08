@@ -39,6 +39,14 @@ form{
   font-weight: bold;
 }
 
+.homepage{
+  padding: 32px;
+}
+
+.homepage2{
+  padding: 16px 32px;
+}
+
 #songs{
   background-color: #4CAF50; /* Green */
   border: none;

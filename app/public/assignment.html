@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
@@ -99,6 +99,8 @@
           <h3>This ref aint got no assignments y'all.</h3>
         </div>
         <hr>
+        <p><a :href="'api/reports/assignment.php/?format=csv&id=' + selectedOffer.id" download>Download as CSV </a>
+        <br>
 
         <h3>{{selectedAssignment === null ? "Add" : "Edit" }}</h3>
         <div class="divider-2"></div>
@@ -141,8 +143,6 @@
               </select>
             </div>
           </div>
-          <!--class="form-control"-->
-
 
           <div class="mb-3">
 
@@ -169,8 +169,7 @@
     </div>
 
 <br>
-<input type="button" id="report" value="Download Assignments Report (csv)"></input>
 
-    <script src="js/index.js"></script>
+<script src="js/index.js"></script>
   </body>
 </html>

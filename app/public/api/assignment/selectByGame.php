@@ -22,7 +22,13 @@ if (isset($_GET['game_id'])) {
 
     JOIN referee
 
-    ON assignment.id = referee.id WHERE game_id = ?';
+    ON assignment.id = referee.id 
+    
+    JOIN games
+
+    ON assignment.game_id = games.game_id
+    
+    WHERE assignment.game_id = ?';
 
     $vars = [$_GET['game_id']];
 

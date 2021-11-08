@@ -260,7 +260,7 @@ const SomeApp = {
               })
               
               .catch( err => {
-                alert("Please fill the requirements!");
+                alert("Please fill all the fields!");
               });
           },
 
